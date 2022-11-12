@@ -21,7 +21,7 @@ export default function Home() {
   const [name, setName] = useState<string>("");
   const [isError, setIsError] = useState<boolean>(false);
 
-  const { setData } = useLogin();
+  const { singIn } = useLogin();
   const router = useRouter();
 
   const handleLoginChange = (e: any) => {
@@ -46,7 +46,7 @@ export default function Home() {
       return;
     }
 
-    setData(data);
+    singIn(data);
     router.push("chat", "chat");
   };
 

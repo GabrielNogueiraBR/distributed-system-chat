@@ -7,7 +7,8 @@ export interface LoginContextData {
   name?: string;
   setName: (value: string) => void;
   setLogin: (value: string) => void;
-  setData: ({ login, name }: LoginData) => void;
+  singIn: ({ login, name }: LoginData) => void;
+  isLogged: boolean;
 }
 
 export const LoginContext = createContext({} as LoginContextData);
@@ -19,14 +20,18 @@ interface LoginProviderProps {
 export function LoginProvider({ children }: LoginProviderProps) {
   const [login, setLogin] = useState<string>();
   const [name, setName] = useState<string>();
+  const [isLogged, setIsLogged] = useState(false);
 
-  const setData = ({ login, name }: LoginData) => {
+  const singIn = ({ login, name }: LoginData) => {
     setLogin(login);
     setName(name);
+    setIsLogged(true);
   };
 
   return (
-    <LoginContext.Provider value={{ login, name, setLogin, setName, setData }}>
+    <LoginContext.Provider
+      value={{ login, name, setLogin, setName, singIn, isLogged }}
+    >
       {children}
     </LoginContext.Provider>
   );
