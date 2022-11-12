@@ -3,9 +3,9 @@ import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
-import ChatBody from "../components/Chat/ChatBody";
-import ChatForm from "../components/Chat/ChatForm";
-import ChatHeader from "../components/Chat/ChatHeader";
+import ChatBody from "../components/ChatBody";
+import ChatForm from "../components/ChatForm";
+import ChatHeader from "../components/ChatHeader";
 import { useLogin } from "../context/LoginContext";
 
 export default function Chat() {

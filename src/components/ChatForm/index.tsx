@@ -1,6 +1,6 @@
 import { Button, HStack } from "@chakra-ui/react";
 import React from "react";
-import { TextArea } from "../../Form/TextArea";
+import { TextArea } from "../Form/TextArea";
 
 const ChatForm = () => {
   return (
