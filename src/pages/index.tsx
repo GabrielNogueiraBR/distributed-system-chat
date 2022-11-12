@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
-import io from "socket.io-client";
-
 import { Button, Flex, Stack } from "@chakra-ui/react";
-import api from "../services/api";
 import { Input } from "../components/Form/Input";
 
 import * as yup from "yup";
@@ -49,17 +46,6 @@ export default function Home() {
     singIn(data);
     router.push("chat", "chat");
   };
-
-  const socketConnection = async () => {
-    await api.get("socket");
-
-    const socket = io();
-    console.log(socket);
-  };
-
-  useEffect(() => {
-    socketConnection();
-  }, []);
 
   useEffect(() => {
     setIsError(false);
