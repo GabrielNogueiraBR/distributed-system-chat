@@ -1,5 +1,6 @@
 import {
   FormControl,
+  FormHelperText,
   FormLabel,
   Input as ChakraInput,
   InputProps as ChakraInputProps,
@@ -8,9 +9,16 @@ import {
 interface InputProps extends ChakraInputProps {
   name: string;
   label?: string;
+  errorMessage?: string;
 }
 
-export function Input({ name, label, ...rest }: InputProps) {
+export function Input({
+  name,
+  label,
+  isInvalid,
+  errorMessage,
+  ...rest
+}: InputProps) {
   return (
     <FormControl>
       {!!label && <FormLabel htmlFor="password">{label}</FormLabel>}
@@ -27,6 +35,9 @@ export function Input({ name, label, ...rest }: InputProps) {
         }}
         {...rest}
       />
+      {isInvalid && errorMessage && (
+        <FormHelperText color="orange.400">{errorMessage}</FormHelperText>
+      )}
     </FormControl>
   );
 }
