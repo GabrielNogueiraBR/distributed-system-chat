@@ -86,6 +86,7 @@ export default function Home() {
             <Input
               name="login"
               type="text"
+              placeholder="Digite seu login (sem espaços)"
               label="Login"
               value={login}
               onChange={handleLoginChange}
@@ -94,6 +95,7 @@ export default function Home() {
             <Input
               name="nome"
               type="text"
+              placeholder="Digite seu nome"
               label="Nome"
               value={name}
               onChange={handleNameChange}
