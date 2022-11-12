@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
 import io from "socket.io-client";
@@ -7,7 +7,49 @@ import { Button, Flex, Stack } from "@chakra-ui/react";
 import api from "../services/api";
 import { Input } from "../components/Form/Input";
 
+import * as yup from "yup";
+import { useLogin } from "../context/LoginContext";
+import { useRouter } from "next/router";
+
+const formLoginSchema = yup.object().shape({
+  login: yup.string().min(5).required(),
+  name: yup.string().min(5).required(),
+});
+
 export default function Home() {
+  const [login, setLogin] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [isError, setIsError] = useState<boolean>(false);
+
+  const { setData } = useLogin();
+  const router = useRouter();
+
+  const handleLoginChange = (e: any) => {
+    const value: string = e.target.value;
+    const newLogin = value.replace(/(( )|[^a-z])/, "");
+    setLogin(newLogin);
+  };
+
+  const handleNameChange = (e: any) => {
+    const value: string = e.target.value;
+    setName(value);
+  };
+
+  const handleOnSubmitForm = async (event: React.FormEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const data = { login, name };
+
+    const isValid = await formLoginSchema.isValid(data);
+
+    if (!isValid) {
+      setIsError(true);
+      return;
+    }
+
+    setData(data);
+    router.push("chat", "chat");
+  };
+
   const socketConnection = async () => {
     await api.get("socket");
 
@@ -18,6 +60,10 @@ export default function Home() {
   useEffect(() => {
     socketConnection();
   }, []);
+
+  useEffect(() => {
+    setIsError(false);
+  }, [login, name]);
 
   return (
     <>
@@ -34,9 +80,27 @@ export default function Home() {
           padding={8}
           borderRadius={8}
           flexDirection="column"
+          onSubmit={handleOnSubmitForm}
         >
           <Stack spacing={4}>
-            <Input name="nome" type="text" label="Nome" />
+            <Input
+              name="login"
+              type="text"
+              label="Login"
+              value={login}
+              onChange={handleLoginChange}
+              autoComplete="off"
+            />
+            <Input
+              name="nome"
+              type="text"
+              label="Nome"
+              value={name}
+              onChange={handleNameChange}
+              autoComplete="off"
+              isInvalid={isError}
+              errorMessage={"Formulário inválido"}
+            />
           </Stack>
 
           <Button type="submit" marginTop={6} colorScheme="pink" size={"lg"}>
