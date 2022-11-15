@@ -28,6 +28,8 @@ export function LoginProvider({ children }: LoginProviderProps) {
     setIsLogged(true);
   };
 
+  //TODO: verificar se o usuario ja nao está logado antes de entrar
+
   return (
     <LoginContext.Provider
       value={{ login, name, setLogin, setName, singIn, isLogged }}
