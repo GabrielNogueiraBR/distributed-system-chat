@@ -15,7 +15,7 @@ const ChatMessage = ({
 }: ChatMessageProps) => {
   return (
     <VStack w="100%" align={isUserAuthor ? "flex-end" : "flex-start"} px="4">
-      {isInitial && <Text>{message.author}</Text>}
+      {isInitial && <Text>{message.name || message.author}</Text>}
       <Flex
         background={isUserAuthor ? "pink.500" : "gray.700"}
         w="25rem"

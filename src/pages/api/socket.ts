@@ -11,7 +11,6 @@ export default function SocketServer(req: any, res: any) {
   res.socket.server.io = io;
 
   const onConnection = (socket: any) => {
-    console.log('conectou ao servidor')
     serverReceiveMessageListener({ io, socket });
   };
 

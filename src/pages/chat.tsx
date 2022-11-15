@@ -10,14 +10,14 @@ import { useChat } from "../context/ChatContext";
 import { useLogin } from "../context/LoginContext";
 
 export default function Chat() {
-  const { isLogged, login } = useLogin();
+  const { isLogged, login, name } = useLogin();
   const { sendMessage } = useChat();
 
   const router = useRouter();
 
   const handleSendMessage = async (content: string) => {
     if (!login) return;
-    sendMessage({ author: login, content: content });
+    sendMessage({ author: login, content: content, name: name });
   };
 
   useEffect(() => {
