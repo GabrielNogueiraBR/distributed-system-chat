@@ -6,11 +6,19 @@ import React, { useEffect } from "react";
 import ChatBody from "../components/ChatBody";
 import ChatForm from "../components/ChatForm";
 import ChatHeader from "../components/ChatHeader";
+import { useChat } from "../context/ChatContext";
 import { useLogin } from "../context/LoginContext";
 
 export default function Chat() {
-  const { isLogged } = useLogin();
+  const { isLogged, login } = useLogin();
+  const { sendMessage } = useChat();
+
   const router = useRouter();
+
+  const handleSendMessage = async (content: string) => {
+    if (!login) return;
+    sendMessage({ author: login, content: content });
+  };
 
   useEffect(() => {
     if (!isLogged) router.push("/", "/");
@@ -26,7 +34,7 @@ export default function Chat() {
         <Box flex="0.8" borderRadius={8} bg="gray.800" p={["6", "8"]}>
           <ChatHeader />
           <ChatBody />
-          <ChatForm />
+          <ChatForm onSendMessage={handleSendMessage} />
         </Box>
       </Flex>
     </>

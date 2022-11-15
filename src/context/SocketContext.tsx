@@ -8,7 +8,6 @@ import {
 import api from "../services/api";
 
 import io, { Socket } from "socket.io-client";
-import { configureSocketClientFunctions } from "../utils/SocketClientFunctions";
 
 export interface SocketContextData {
   socket: Socket | undefined;
@@ -27,8 +26,7 @@ export default function SocketProvider({ children }: SocketProviderProps) {
     await api.get("socket");
 
     const newSocket = io();
-    const configuredSocket = configureSocketClientFunctions(newSocket);
-    setSocket(configuredSocket);
+    setSocket(newSocket);
   };
 
   useEffect(() => {
