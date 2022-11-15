@@ -1,26 +1,25 @@
 import { Flex, Text, VStack } from "@chakra-ui/react";
 import React from "react";
+import Message from "../../types/Message";
 
-interface MessageProps {
-  author: string;
-  message: string;
+interface ChatMessageProps {
+  message: Message;
   align?: "left" | "right";
   isInitial?: boolean;
 }
 
-const Message = ({
-  author,
+const ChatMessage = ({
   message,
   isInitial = true,
   align = "left",
-}: MessageProps) => {
+}: ChatMessageProps) => {
   return (
     <VStack
       w="100%"
       align={align === "left" ? "flex-start" : "flex-end"}
       px="4"
     >
-      {isInitial && <Text>{author}</Text>}
+      {isInitial && <Text>{message.author}</Text>}
       <Flex
         background={align === "left" ? "gray.700" : "pink.500"}
         w="25rem"
@@ -33,10 +32,10 @@ const Message = ({
             : "1rem"
         }
       >
-        <Text>{message}</Text>
+        <Text>{message.content}</Text>
       </Flex>
     </VStack>
   );
 };
 
-export default Message;
+export default ChatMessage;
