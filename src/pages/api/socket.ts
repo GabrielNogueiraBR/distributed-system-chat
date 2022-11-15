@@ -1,8 +1,7 @@
 import { Server } from "socket.io";
+import serverReceiveMessageListener from "../../utils/serverReceiveMessageListener";
 
 export default function SocketServer(req: any, res: any) {
-  console.log("entrou no server 2");
-
   if (res.socket.server.io) {
     res.end();
     return;
@@ -12,10 +11,10 @@ export default function SocketServer(req: any, res: any) {
   res.socket.server.io = io;
 
   const onConnection = (socket: any) => {
-    console.log('conectou');
+    console.log('conectou ao servidor')
+    serverReceiveMessageListener({ io, socket });
   };
 
-  // Define actions inside
   io.on("connection", onConnection);
 
   res.end();
