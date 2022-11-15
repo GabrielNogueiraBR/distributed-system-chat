@@ -4,31 +4,27 @@ import Message from "../../types/Message";
 
 interface ChatMessageProps {
   message: Message;
-  align?: "left" | "right";
   isInitial?: boolean;
+  isUserAuthor?: boolean;
 }
 
 const ChatMessage = ({
   message,
   isInitial = true,
-  align = "left",
+  isUserAuthor,
 }: ChatMessageProps) => {
   return (
-    <VStack
-      w="100%"
-      align={align === "left" ? "flex-start" : "flex-end"}
-      px="4"
-    >
+    <VStack w="100%" align={isUserAuthor ? "flex-end" : "flex-start"} px="4">
       {isInitial && <Text>{message.author}</Text>}
       <Flex
-        background={align === "left" ? "gray.700" : "pink.500"}
+        background={isUserAuthor ? "pink.500" : "gray.700"}
         w="25rem"
         p={["2", "4"]}
         borderRadius={
           isInitial
-            ? align === "left"
-              ? "0rem 1rem 1rem 1rem"
-              : "1rem 0rem 1rem 1rem"
+            ? isUserAuthor
+              ? "1rem 0rem 1rem 1rem"
+              : "0rem 1rem 1rem 1rem"
             : "1rem"
         }
       >
