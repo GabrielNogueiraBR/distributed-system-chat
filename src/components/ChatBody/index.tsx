@@ -29,6 +29,9 @@ const ChatBody = () => {
             key={index}
             message={message}
             isUserAuthor={login === message.author}
+            isInitial={
+              index === 0 || messages[index - 1].author !== message.author
+            }
           />
         );
       })}

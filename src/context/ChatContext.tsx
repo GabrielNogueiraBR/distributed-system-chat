@@ -18,6 +18,8 @@ interface ChatProviderProps {
 
 export function ChatProvider({ children }: ChatProviderProps) {
   const [messages, setMessages] = useState<Message[]>([] as Message[]);
+  const [configured, setConfigured] = useState<boolean>(false);
+
   const { socket } = useSocket();
 
   const receiveMessage = async (message: Message) => {
@@ -30,8 +32,11 @@ export function ChatProvider({ children }: ChatProviderProps) {
   };
 
   useEffect(() => {
-    if (socket) messageListener(socket, receiveMessage);
-  }, [socket, messages]);
+    if (socket && !configured) {
+      setConfigured(false);
+      messageListener(socket, receiveMessage);
+    }
+  }, [socket, messages, configured]);
 
   return (
     <ChatContext.Provider value={{ messages, sendMessage, receiveMessage }}>
