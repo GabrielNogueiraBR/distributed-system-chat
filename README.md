@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+ <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
+ <img src="https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white">
+ <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white">
+</p>
+<p align="center">
+ <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white">
+ <a href="https://github.com/socketio/socket.io"><img alt="Qries" src="https://img.shields.io/badge/Socket.io-010101?&style=for-the-badge&logo=Socket.io&logoColor=white"></a>
+</p>
 
-## Getting Started
+# 📲 Distributed System Project: Chat
+XXXXXXXX.
 
-First, run the development server:
+# 👀 App Preview 
+![teste](https://user-images.githubusercontent.com/30303558/202433976-cc3ebe5c-789f-498b-a312-dd19a51681e2.gif)
 
+
+## 🖥️ Requirements
+1. Make sure **Node JS** is installed on your machine by running:
 ```bash
-npm run dev
-# or
-yarn dev
+node -v
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. If you have not installed the **Node JS**, use the following link to download LTS version and install it: [Download NodeJS](https://nodejs.org/en/)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 📝 Installation
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Clone the [repository](https://github.com/GabrielNogueiraBR/Monext)
+`git clone git@github.com:GabrielNogueiraBR/distributed-system-chat.git`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. Install npm packages
+`npm install`
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+3. Starting the project with NPM
+```
+npm run dev
+server is running on *:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 📦 External packages
 
-## Deploy on Vercel
+<a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white"></a> - is used to run the server with all routes and business rules together with Socket.io.
+</br>
+<a href="https://github.com/socketio/socket.io"><img alt="Qries" src="https://img.shields.io/badge/Socket.io-010101?&style=for-the-badge&logo=Socket.io&logoColor=white"></a> - is used to make the multi-screen connection in this project.
+</br>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👨‍💻 Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- To access the application start screen, go to this path
+```
+GET /
+```
+On this screen, the user must inform the login and the name to access application
+
+- To access the chat application screen, go to this path
+```
+GET /chat
+```
+On this screen, the user has access to the chat screen, with the form to interact with other users typing messages.
+
+## 👨‍👦‍👦 Contributors
+<div align="center">
+ <a href="https://github.com/GabrielNogueiraBR" target="_blank"><img src="https://avatars.githubusercontent.com/u/30303558?v=4" width="8%"></a>
+ <a href="https://github.com/VitorGois" target="_blank"><img src="https://avatars.githubusercontent.com/u/69533533?v=4" width="8%"></a>
+ <a href="https://github.com/CordeiroOtavio" target="_blank"><img src="https://avatars.githubusercontent.com/u/69653683?v=4" width="8%"></a>
+ <a href="https://github.com/ryanraul" target="_blank"><img src="https://avatars.githubusercontent.com/u/42502534?v=4" width="8%"></a>
+ <a href="https://github.com/gferrazz" target="_blank"><img src="https://avatars.githubusercontent.com/u/48798017?v=4" width="8%"></a>
+</div>
+
+## 📃 License
+This software is under the [MIT License](https://github.com/GabrielNogueiraBR/Monext/blob/main/LICENSE).
