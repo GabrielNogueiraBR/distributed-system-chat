@@ -12,7 +12,7 @@
 XXXXXXXX.
 
 # 👀 App Preview 
--- TODO
+![teste](https://user-images.githubusercontent.com/30303558/202433784-e7d050d0-c004-471e-9633-f18524d0998b.gif)
 
 
 ## 🖥️ Requirements
