@@ -11,7 +11,7 @@
 # 🖥️ Distributed System Project: Chat
 O objetivo do projeto consiste em desenvolver uma prova de conceito de uma aplicação com chat em tempo real permitindo a comunicação entre diversos usuários em diferentes dispositivos.
 
-O projeto será desenvolvido utilizando tecnologias do mundo de Javascript, como o React para o frontend da aplicação e um servidor NodeJS responsável por ficar escutando o socket.
+O projeto será desenvolvido utilizando tecnologias do mundo de Javascript, como o React para o frontend da aplicação, juntamente com o Framework NextJS que possibilita a adição de um servidor Back-end ao projeto, responsável por implementar toda a regra de negócio do socket.
 
 # 👀 App Preview 
 ![teste](https://user-images.githubusercontent.com/30303558/202433976-cc3ebe5c-789f-498b-a312-dd19a51681e2.gif)
