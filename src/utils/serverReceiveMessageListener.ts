@@ -8,7 +8,7 @@ interface Props {
 
 const serverReceiveMessageListener = ({ io, socket }: Props) => {
   const emitMessage = (data: Message) => {
-    socket.broadcast.emit("receiveIncomingMessage", data);
+    io.emit("receiveIncomingMessage", data);
   };
 
   socket.on("sendMessage", emitMessage);

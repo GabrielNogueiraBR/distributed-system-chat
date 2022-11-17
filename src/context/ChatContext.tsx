@@ -7,7 +7,6 @@ import { useSocket } from "./SocketContext";
 interface ChatContextData {
   messages: Message[];
   sendMessage: (message: Message) => void;
-  receiveMessage: (message: Message) => void;
 }
 
 export const ChatContext = createContext({} as ChatContextData);
@@ -28,7 +27,6 @@ export function ChatProvider({ children }: ChatProviderProps) {
 
   const sendMessage = async (message: Message) => {
     socket?.emit("sendMessage", message);
-    setMessages([...messages, message]);
   };
 
   useEffect(() => {
@@ -39,7 +37,7 @@ export function ChatProvider({ children }: ChatProviderProps) {
   }, [socket, messages, configured]);
 
   return (
-    <ChatContext.Provider value={{ messages, sendMessage, receiveMessage }}>
+    <ChatContext.Provider value={{ messages, sendMessage }}>
       {children}
     </ChatContext.Provider>
   );

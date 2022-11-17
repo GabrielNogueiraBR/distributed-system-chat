@@ -40,11 +40,3 @@ export default function Chat() {
     </>
   );
 }
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  return {
-    props: {
-      message: "olá mundo",
-    },
-  };
-}
