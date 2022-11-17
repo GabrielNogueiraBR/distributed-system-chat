@@ -34,7 +34,7 @@ node -v
 
 3. Starting the project with NPM
 ```
-npm dev
+npm run dev
 server is running on *:3000
 ```
 
