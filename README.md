@@ -27,7 +27,7 @@ node -v
 
 ## 📝 Installation
 
-1. Clone the [repository](https://github.com/GabrielNogueiraBR/Monext)
+1. Clone the [repository](https://github.com/GabrielNogueiraBR/distributed-system-chat)
 `git clone git@github.com:GabrielNogueiraBR/distributed-system-chat.git`
 
 2. Install npm packages
